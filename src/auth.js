@@ -7,43 +7,43 @@ class InvalidLoginError extends CredentialsSignin {
 }
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
-  debug: true,
   providers: [
     Credentials({
       credentials: {
-        username: {},
-        password: {},
+        username: {
+          label: "Username",
+          type: "text",
+          placeholder: "example",
+        },
+        password: {
+          label: "Password",
+          type: "password",
+          placeholder: "password",
+        },
       },
       authorize: async (credentials) => {
-        let user = null;
-
-        // logic to verify if the user exists
-        user = await getSingleUser(credentials);
-        console.log("user", user);
-
-        // if (!user) {
-        //   throw new InvalidLoginError();
-        // }
-
-        // // return user object with their profile data
-        // return user;
+        const user = {
+          id: "1",
+          name: "smith",
+          email: "smith.thompson@altostrat.com",
+        };
+        if (user) {
+          return user;
+        } else {
+          return null;
+        }
       },
     }),
   ],
+  pages: {
+    signIn: "/login",
+  },
   callbacks: {
-    async jwt({ token, user }) {
-      return { ...token, ...user };
-    },
-    async session({ session, token }) {
-      session.user = token;
-      return session;
+    authorized: async ({ auth }) => {
+      return !!auth;
     },
   },
   session: {
     strategy: "jwt",
-  },
-
-  pages: {
-    signIn: "/login",
   },
 });

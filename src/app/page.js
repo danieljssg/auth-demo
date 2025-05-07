@@ -1,14 +1,7 @@
-import { auth } from "@/auth";
-import { redirect } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 export default async function Home() {
-  const session = await auth();
-
-  if (session) {
-    redirect("/dashboard");
-  }
   return (
     <div className="w-full max-w-md space-y-8">
       <div className="text-center">

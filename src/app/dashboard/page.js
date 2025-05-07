@@ -1,14 +1,7 @@
-import { redirect } from "next/navigation";
-import { auth, signOut } from "@/auth";
+import { signOut } from "@/auth";
 import { Button } from "@/components/ui/button";
 
 export default async function DashboardPage() {
-  const session = await auth();
-
-  if (!session) {
-    redirect("/login");
-  }
-
   return (
     <div className="flex min-h-screen flex-col p-8">
       <div className="flex justify-between items-center mb-8">
@@ -16,7 +9,7 @@ export default async function DashboardPage() {
         <form
           action={async () => {
             "use server";
-            await signOut({ redirect: true, callbackUrl: "/" });
+            await signOut();
           }}
         >
           <Button variant="outline" type="submit">

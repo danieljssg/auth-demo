@@ -15,17 +15,15 @@ export const LoginAction = async (prevState, formData) => {
       return { message: vdata.message, ok: false };
     }
 
-    const authStatus = await signIn("credentials", {
-      username: vdata.data.username,
-      password: vdata.data.password,
+    const result = await signIn("credentials", {
+      username,
+      password,
+      redirect: false, // Indica que NO debe redirigir automáticamente
     });
 
-    console.log("authStatus", authStatus);
-
-    return {
-      message: "ok",
-      ok: true,
-    };
+    if (result?.error) {
+      return { message: "Credenciales inválidas", ok: false }; // Maneja el error de autenticación
+    }
   } catch (error) {
     console.log(error);
     return { message: error.message, ok: false };
