@@ -9,12 +9,15 @@ export const getSingleUser = async (user) => {
     if (!userDB) {
       return null;
     }
-    const matchPassword = await User.comparePassword(userDB.password, password);
-    console.log(matchPassword);
+
+    console.log(userDB);
+
+    // const matchPassword = await User.comparePassword(userDB.password, password);
+    // console.log(matchPassword);
 
     return userDB;
   } catch (error) {
     console.log(error);
-    return error;
+    return null;
   }
 };

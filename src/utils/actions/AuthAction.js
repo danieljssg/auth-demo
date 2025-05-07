@@ -20,7 +20,7 @@ export const LoginAction = async (prevState, formData) => {
       password: vdata.data.password,
     });
 
-    console.log(authStatus);
+    console.log("authStatus", authStatus);
 
     return {
       message: "ok",
