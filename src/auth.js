@@ -1,10 +1,7 @@
 import NextAuth, { CredentialsSignin } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
+import GitHub from "next-auth/providers/github";
 import { getSingleUser } from "./lib/db/users";
-
-class InvalidLoginError extends CredentialsSignin {
-  code = "Invalid identifier or password";
-}
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
@@ -22,11 +19,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         },
       },
       authorize: async (credentials) => {
-        const user = {
-          id: "1",
-          name: "smith",
-          email: "smith.thompson@altostrat.com",
-        };
+        let user = null;
+
+        user = await getSingleUser(credentials);
+
         if (user) {
           return user;
         } else {
@@ -34,6 +30,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         }
       },
     }),
+    GitHub,
   ],
   pages: {
     signIn: "/login",

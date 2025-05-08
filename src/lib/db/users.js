@@ -1,23 +1,27 @@
 import dbConnect from "@/config/mongodb";
 import User from "@/models/User";
 
-export const getSingleUser = async (user) => {
+export const getSingleUser = async (credentials) => {
   try {
-    const { username, password } = user;
     await dbConnect();
+
+    const { username, password } = credentials;
     const userDB = await User.findOne({ username: username });
+
     if (!userDB) {
       return null;
     }
 
-    console.log(userDB);
+    const matchPassword = await User.comparePassword(password, userDB.password);
 
-    // const matchPassword = await User.comparePassword(userDB.password, password);
-    // console.log(matchPassword);
+    if (!matchPassword) {
+      return null;
+    }
 
-    return userDB;
+    const { password: userPassword, ...rest } = userDB.toObject();
+    return rest;
   } catch (error) {
-    console.log(error);
+    console.error(error);
     return null;
   }
 };

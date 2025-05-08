@@ -29,6 +29,9 @@ export const LoginAction = async (prevState, formData) => {
     return { message: "", ok: true };
   } catch (error) {
     console.log(error);
-    return { message: error.message, ok: false };
+    if (error?.type === "CredentialsSignin") {
+      return { message: "Credenciales inválidas", ok: false };
+    }
+    return { message: "Error inesperado al iniciar sesión.", ok: false };
   }
 };

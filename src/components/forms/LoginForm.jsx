@@ -5,6 +5,7 @@ import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -16,6 +17,7 @@ import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { ShieldUser } from "lucide-react";
 import { LoaderIcon } from "lucide-react";
+import { GithubSignIn } from "../buttons/GithubSignIn";
 
 export const LoginForm = ({ session }) => {
   const router = useRouter();
@@ -73,6 +75,9 @@ export const LoginForm = ({ session }) => {
             </div>
           </form>
         </CardContent>
+        <CardFooter>
+          <GithubSignIn />
+        </CardFooter>
       </Card>
     </div>
   );
