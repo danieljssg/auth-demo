@@ -1,6 +1,7 @@
 "use server";
 import { LoginUserSchema, validator } from "@/utils/validations";
 import { signIn } from "@/auth";
+import { redirect } from "next/navigation";
 
 export const LoginAction = async (prevState, formData) => {
   try {
@@ -18,12 +19,14 @@ export const LoginAction = async (prevState, formData) => {
     const result = await signIn("credentials", {
       username,
       password,
-      redirect: false, // Indica que NO debe redirigir automáticamente
+      redirect: false,
     });
 
     if (result?.error) {
-      return { message: "Credenciales inválidas", ok: false }; // Maneja el error de autenticación
+      return { message: "Credenciales inválidas", ok: false };
     }
+
+    return { message: "", ok: true };
   } catch (error) {
     console.log(error);
     return { message: error.message, ok: false };

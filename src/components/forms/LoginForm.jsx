@@ -13,16 +13,20 @@ import { Label } from "@/components/ui/label";
 import { LoginAction } from "@/utils/actions/AuthAction";
 import initialState from "@/utils/initialState";
 import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
+import { ShieldUser } from "lucide-react";
+import { LoaderIcon } from "lucide-react";
 
-export const LoginForm = () => {
+export const LoginForm = ({ session }) => {
+  const router = useRouter();
   const [state, formAction, pending] = useActionState(
     LoginAction,
     initialState
   );
   useEffect(() => {
-    if (state.ok === true) {
-      toast.success("Login successful");
-    } else if (state.ok === false) {
+    if (state?.ok === true) {
+      router.push("/dashboard");
+    } else if (state?.ok === false) {
       toast.error(state.message);
     }
   }, [state]);
@@ -58,8 +62,13 @@ export const LoginForm = () => {
                   required
                 />
               </div>
-              <Button type="submit" className="w-full">
+              <Button type="submit" disabled={pending}>
                 Login
+                {pending ? (
+                  <LoaderIcon className="animate-spin" />
+                ) : (
+                  <ShieldUser />
+                )}
               </Button>
             </div>
           </form>
