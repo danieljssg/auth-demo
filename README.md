@@ -54,15 +54,16 @@ Sigue estos pasos para ejecutar la aplicación en tu entorno local:
 
     ```env
     MONGODB_URI=TU_URL_DE_CONEXIÓN_MONGODB
-    NEXTAUTH_SECRET=UN_SECRETO_SEGURO_PARA_NEXTAUTH
-    GITHUB_ID=TU_ID_DE_CLIENTE_DE_GITHUB
-    GITHUB_SECRET=TU_SECRETO_DE_CLIENTE_DE_GITHUB
-    GOOGLE_CLIENT_ID=TU_ID_DE_CLIENTE_DE_GOOGLE
-    GOOGLE_CLIENT_SECRET=TU_SECRETO_DE_CLIENTE_DE_GOOGLE
+    MONGO_CFG=?retryWrites=true&w=majority O LOS PARAMETROS DE LA URL PARA MONGODB
+    AUTH_SECRET=UN_SECRETO_SEGURO_PARA_NEXTAUTH
+    AUTH_GITHUB_ID=TU_ID_DE_CLIENTE_DE_GITHUB
+    AUTH_GITHUB_SECRET=TU_SECRETO_DE_CLIENTE_DE_GITHUB
+    AUTH_GOOGLE_ID=TU_ID_DE_CLIENTE_DE_GOOGLE
+    AUTH_GOOGLE_SECRET=TU_SECRETO_DE_CLIENTE_DE_GOOGLE
     NEXTAUTH_URL=http://localhost:3000 # O la URL de tu despliegue
     ```
 
-    **Importante:** Para habilitar la autenticación con Google y GitHub, necesitarás crear credenciales de OAuth en sus respectivas plataformas de desarrolladores y configurar las variables `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `GITHUB_ID` y `GITHUB_SECRET`. Consulta la documentación oficial:
+    **Importante:** Para habilitar la autenticación con Google y GitHub, necesitarás crear credenciales de OAuth en sus respectivas plataformas de desarrolladores y configurar las variables `AUTH_GOOGLE_ID`, `AUTH_GOOGLE_SECRET`, `AUTH_GITHUB_ID` y `AUTH_GITHUB_SECRET`. Consulta la documentación oficial:
 
     - **Google Cloud Console:** [https://console.cloud.google.com/apis/credentials](https://console.cloud.google.com/apis/credentials)
     - **GitHub Developer settings:** [https://github.com/settings/developers](https://github.com/settings/developers)
@@ -163,15 +164,16 @@ Follow these steps to run the application in your local environment:
 
     ```env
     MONGODB_URI=YOUR_MONGODB_CONNECTION_URL
-    NEXTAUTH_SECRET=A_SECURE_SECRET_FOR_NEXTAUTH
-    GITHUB_ID=YOUR_GITHUB_CLIENT_ID
-    GITHUB_SECRET=YOUR_GITHUB_CLIENT_SECRET
-    GOOGLE_CLIENT_ID=YOUR_GOOGLE_CLIENT_ID
-    GOOGLE_CLIENT_SECRET=YOUR_GOOGLE_CLIENT_SECRET
+    MONGO_CFG=?retryWrites=true&w=majority OR YOUR MONGODB URI PARAMETERS
+    AUTH_SECRET=A_SECURE_SECRET_FOR_NEXTAUTH
+    AUTH_GITHUB_ID=YOUR_GITHUB_CLIENT_ID
+    AUTH_GITHUB_SECRET=YOUR_GITHUB_CLIENT_SECRET
+    AUTH_GOOGLE_ID=YOUR_AUTH_GOOGLE_ID
+    AUTH_GOOGLE_SECRET=YOUR_AUTH_GOOGLE_SECRET
     NEXTAUTH_URL=http://localhost:3000 # Or your deployment URL
     ```
 
-    **Important:** To enable authentication with Google and GitHub, you will need to create OAuth credentials on their respective developer platforms and configure the `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `GITHUB_ID`, and `GITHUB_SECRET` variables. Refer to the official documentation:
+    **Important:** To enable authentication with Google and GitHub, you will need to create OAuth credentials on their respective developer platforms and configure the `AUTH_GOOGLE_ID`, `AUTH_GOOGLE_SECRET`, `AUTH_GITHUB_ID`, and `AUTH_GITHUB_SECRET` variables. Refer to the official documentation:
 
     - **Google Cloud Console:** [https://console.cloud.google.com/apis/credentials](https://console.cloud.google.com/apis/credentials)
     - **GitHub Developer settings:** [https://github.com/settings/developers](https://github.com/settings/developers)
