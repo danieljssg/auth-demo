@@ -71,7 +71,6 @@ userSchema.statics.checkUniqueFields = async function (
 ) {
   const User = this;
 
-  // Verificar si ya existe un documento con el mismo username
   const userWithSameUsername = await User.findOne({
     $or: [{ dni }, { id_number }],
   });
