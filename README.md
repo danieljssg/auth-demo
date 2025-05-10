@@ -60,6 +60,9 @@ Sigue estos pasos para ejecutar la aplicación en tu entorno local:
     AUTH_GITHUB_SECRET=TU_SECRETO_DE_CLIENTE_DE_GITHUB
     AUTH_GOOGLE_ID=TU_ID_DE_CLIENTE_DE_GOOGLE
     AUTH_GOOGLE_SECRET=TU_SECRETO_DE_CLIENTE_DE_GOOGLE
+    AUTH_MICROSOFT_ENTRA_ID_ID = TU_ID_DE_CLIENTE_DE_MICROSOFT_ENTRA
+    AUTH_MICROSOFT_ENTRA_ID_SECRET = TU_SECRETO_DE_CLIENTE_DE_MICROSOFT_ENTRA
+    AUTH_MICROSOFT_ENTRA_ID_ISSUER = "https://login.microsoftonline.com/common/v2.0"
     NEXTAUTH_URL=http://localhost:3000 # O la URL de tu despliegue
     ```
 
@@ -170,6 +173,9 @@ Follow these steps to run the application in your local environment:
     AUTH_GITHUB_SECRET=YOUR_GITHUB_CLIENT_SECRET
     AUTH_GOOGLE_ID=YOUR_AUTH_GOOGLE_ID
     AUTH_GOOGLE_SECRET=YOUR_AUTH_GOOGLE_SECRET
+    AUTH_MICROSOFT_ENTRA_ID_ID = YOUR_MICROSOFT_ENTRA_ID
+    AUTH_MICROSOFT_ENTRA_ID_SECRET = YOUR_MICROSOFT_ENTRA_ID_SECRET
+    AUTH_MICROSOFT_ENTRA_ID_ISSUER = "https://login.microsoftonline.com/common/v2.0"
     NEXTAUTH_URL=http://localhost:3000 # Or your deployment URL
     ```
 

@@ -19,6 +19,7 @@ import { ShieldUser } from "lucide-react";
 import { LoaderIcon } from "lucide-react";
 import { GithubSignIn } from "../buttons/GithubSignIn";
 import { GoogleSignIn } from "../buttons/GoogleSignIn";
+import { MicrosoftSignIn } from "../buttons/MicrosoftSignIn";
 
 export const LoginForm = ({ session }) => {
   const router = useRouter();
@@ -82,6 +83,7 @@ export const LoginForm = ({ session }) => {
       <CardFooter className="w-full flex flex-col justify-center gap-4">
         <GithubSignIn />
         <GoogleSignIn />
+        <MicrosoftSignIn />
       </CardFooter>
     </Card>
   );

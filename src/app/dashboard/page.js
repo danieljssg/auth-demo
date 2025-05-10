@@ -36,7 +36,7 @@ export default async function DashboardPage() {
           <h3 className="text-sm font-medium text-gray-500">
             Información de la sesión:
           </h3>
-          <pre className="mt-2 text-xs overflow-auto p-2 bg-gray-100 rounded">
+          <pre className="mt-2 text-xs overflow-x-hidden p-2 bg-gray-100 rounded max-w-11/12 truncate overflow-auto">
             {JSON.stringify(session, null, 2)}
           </pre>
         </div>
